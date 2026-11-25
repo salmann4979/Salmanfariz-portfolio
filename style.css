@@ -75,8 +75,8 @@ h2::after{content:"";display:block;width:3rem;height:3px;border-radius:3px;backg
 .cta h3{font-size:1.15rem}.cta p{color:var(--muted);font-size:.88rem}
 .cta small{color:var(--v2);font-size:.8rem;display:block}.cta span{font-size:.9rem;word-break:break-all}
 footer{border-top:1px solid var(--line);padding:1.5rem 0 calc(1.5rem + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:.85rem;position:relative;z-index:1}
-.rv{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
-.rv.in{opacity:1;transform:none}
+.js .rv{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.js .rv.in{opacity:1;transform:none}
 .grid .rv:nth-child(4n+2){transition-delay:.1s}.grid .rv:nth-child(4n+3){transition-delay:.2s}.grid .rv:nth-child(4n+4){transition-delay:.3s}
 @media (max-width:900px){
  nav ul{display:none}nav .wrap{justify-content:space-between}
@@ -86,7 +86,7 @@ footer{border-top:1px solid var(--line);padding:1.5rem 0 calc(1.5rem + env(safe-
  .grid{grid-template-columns:1fr 1fr}.cta{grid-template-columns:1fr}
 }
 @media (max-width:520px){.grid,.skills{grid-template-columns:1fr}.stats>div{padding:1rem}.f1{left:-2%}.f2{right:-2%}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
 
 /* mobile nav */
 .menu{display:none;background:none;border:0;width:2.4rem;height:2.4rem;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer}
@@ -102,3 +102,8 @@ footer{border-top:1px solid var(--line);padding:1.5rem 0 calc(1.5rem + env(safe-
  nav.open .menu span:nth-child(2){opacity:0}
  nav.open .menu span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 }
+
+/* small phones: compact nav */
+.logo{white-space:nowrap}
+@media (max-width:900px){nav .wrap{gap:.75rem}}
+@media (max-width:520px){nav .btn .t{display:none}nav .btn{padding:.55rem .7rem}.logo{font-size:1.05rem}}
