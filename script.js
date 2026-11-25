@@ -25,3 +25,8 @@ size();addEventListener('resize',size);
   for(let j=i+1;j<P.length;j++){const b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);
    if(d<120){x.strokeStyle='rgba(255,255,255,'+(.18*(1-d/120))+')';x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}}
  if(!still)requestAnimationFrame(draw)})();
+
+// mobile menu
+const navBar=document.querySelector('nav'),menuBtn=document.getElementById('menu');
+menuBtn.addEventListener('click',()=>{const o=navBar.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o)});
+navBar.querySelectorAll('ul a').forEach(a=>a.addEventListener('click',()=>{navBar.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));
