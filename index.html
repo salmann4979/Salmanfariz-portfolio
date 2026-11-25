@@ -97,6 +97,8 @@ footer{border-top:1px solid var(--line);padding:1.5rem 0 calc(1.5rem + env(safe-
 }
 @media (max-width:520px){.grid,.skills{grid-template-columns:1fr}.stats>div{padding:1rem}.f1{left:-2%}.f2{right:-2%}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
+
+/* mobile nav */
 .menu{display:none;background:none;border:0;width:2.4rem;height:2.4rem;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer}
 .menu span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:.3s}
 @media (max-width:900px){
@@ -110,6 +112,8 @@ footer{border-top:1px solid var(--line);padding:1.5rem 0 calc(1.5rem + env(safe-
  nav.open .menu span:nth-child(2){opacity:0}
  nav.open .menu span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 }
+
+/* small phones: compact nav */
 .logo{white-space:nowrap}
 @media (max-width:900px){nav .wrap{gap:.75rem}}
 @media (max-width:520px){nav .btn .t{display:none}nav .btn{padding:.55rem .7rem}.logo{font-size:1.05rem}}
@@ -136,4 +140,107 @@ footer{border-top:1px solid var(--line);padding:1.5rem 0 calc(1.5rem + env(safe-
     <a class="btn" href="#projects">View projects</a>
    </div>
    <div class="row social">Follow me on
-    <a href="https://github.com/salmann4979" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i" viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.
+    <a href="https://github.com/salmann4979" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i" viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a>
+    <a href="https://www.linkedin.com/in/salman-fariz-a-203873409" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg></a>
+    <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=salmann4979@gmail.com" target="_blank" rel="noopener" aria-label="Email"><svg class="i" viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 6l9 7 9-7"/></svg></a>
+   </div>
+  </div>
+  <div class="pic rv">
+   <div class="ring"></div><div class="blob"></div>
+   <img src="photo.jpg" alt="Salman Fariz A">
+   <div class="float f1"><b>8</b>Projects built</div>
+   <div class="float f2"><b>8.33</b>CGPA</div>
+  </div>
+ </div>
+ <div class="stats rv">
+  <div><span class="ic"><svg class="i" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6m8-12 6 6-6 6"/></svg></span><p><b class="num" data-n="8">0</b><span>Projects built</span></p></div>
+  <div><span class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><p><b class="num" data-n="14">0</b><span>Technologies</span></p></div>
+  <div><span class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.2 2.2 0 0 0-2.9-.1zM12 15l-3-3a22 22 0 0 1 2-4A13 13 0 0 1 22 2c0 2.7-.8 7.5-6 11a22 22 0 0 1-4 2z"/></svg></span><p><b class="num" data-n="1">0</b><span>Startup co-founded</span></p></div>
+  <div><span class="ic"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.2 13 7 22l5-3 5 3-1.2-9"/></svg></span><p><b>Certified</b><span>Full Stack Developer</span></p></div>
+ </div>
+</div></header>
+
+<section id="about"><div class="wrap two">
+ <div class="about rv">
+  <h2>About me</h2>
+  <p>I’m a second-year B.Tech Data Science student at UKF College of Engineering and Technology, Kerala. I enjoy turning ideas into working products, from MERN web apps to ESP32-powered robots and health sensors.</p>
+  <p>As Co-Founder &amp; CTO of Vikastra Technologies, I lead our work on AI-based failure prediction for electric vehicles.</p>
+  <a class="btn" href="#contact">Let’s talk</a>
+ </div>
+ <div id="skills" class="rv">
+  <h2>My skills</h2>
+  <div class="skills">
+   <div class="sk"><div>HTML &amp; CSS<em>Intermediate</em></div><div class="bar"><i data-w="75"></i></div></div>
+   <div class="sk"><div>React &amp; JavaScript<em>Intermediate</em></div><div class="bar"><i data-w="65"></i></div></div>
+   <div class="sk"><div>Node, Express &amp; MongoDB<em>Intermediate</em></div><div class="bar"><i data-w="60"></i></div></div>
+   <div class="sk"><div>C programming<em>Intermediate</em></div><div class="bar"><i data-w="70"></i></div></div>
+   <div class="sk"><div>ESP32 &amp; sensors<em>Intermediate</em></div><div class="bar"><i data-w="65"></i></div></div>
+   <div class="sk"><div>Java &amp; MySQL<em>Basic</em></div><div class="bar"><i data-w="45"></i></div></div>
+   <div class="sk"><div>Flutter<em>Basic</em></div><div class="bar"><i data-w="40"></i></div></div>
+   <div class="sk"><div>Python &amp; Git<em>Basic</em></div><div class="bar"><i data-w="40"></i></div></div>
+  </div>
+ </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+ <h2 class="rv">Featured projects</h2>
+ <div class="grid">
+  <article class="card rv"><div class="thumb" style="background:linear-gradient(135deg,#0a0a0a,#3a3a3a)">EV · AI</div><div class="b"><h3>EV Failure Prediction System</h3><small>AI · Vikastra Technologies</small><p>Predicts failures across EV components by tracking how battery, motor and controller health affect each other.</p></div></article>
+  <article class="card rv"><div class="thumb" style="background:linear-gradient(135deg,#0a0a0a,#3a3a3a)">airbnb</div><div class="b"><h3>Airbnb Clone</h3><small>React, Node, Express, MongoDB</small><p>Full stack rental platform with login, listings, image upload, search, filters and date-based booking.</p></div></article>
+  <article class="card rv"><div class="thumb" style="background:linear-gradient(135deg,#0a0a0a,#3a3a3a)">SOS</div><div class="b"><h3>Quick SOS Campus</h3><small>Flutter</small><p>A women’s safety app for campuses with one-tap emergency alerts to trusted contacts.</p></div></article>
+  <article class="card rv"><div class="thumb" style="background:linear-gradient(135deg,#0a0a0a,#3a3a3a)">EVENTS</div><div class="b"><h3>Student Event Management</h3><small>Java Swing, MySQL, JDBC</small><p>Desktop system for admins to manage events and students, and for students to register and track events.</p></div></article>
+  <article class="card rv"><div class="thumb" style="background:linear-gradient(135deg,#0a0a0a,#3a3a3a)">DUCK BOT</div><div class="b"><h3>Duck Robot</h3><small>ESP32, Embedded C</small><p>Robot with servo-driven movement and expressions, IR obstacle detection and DC motor navigation.</p></div></article>
+  <article class="card rv"><div class="thumb" style="background:linear-gradient(135deg,#0a0a0a,#3a3a3a)">♥ SpO₂</div><div class="b"><h3>Heart Rate &amp; SpO₂ Monitor</h3><small>MAX30102 sensor</small><p>Measures heart rate and blood oxygen levels using the MAX30102 pulse oximetry sensor.</p></div></article>
+  <article class="card rv"><div class="thumb" style="background:linear-gradient(135deg,#0a0a0a,#3a3a3a)">DISTANCE</div><div class="b"><h3>Distance Alert System</h3><small>Ultrasonic sensor</small><p>Warns when an object comes too close, using an ultrasonic distance sensor.</p></div></article>
+  <article class="card rv"><div class="thumb" style="background:linear-gradient(135deg,#0a0a0a,#3a3a3a)">X | O</div><div class="b"><h3>Tic-Tac-Toe AI</h3><small>C</small><p>A computer opponent for Tic-Tac-Toe, written in C.</p></div></article>
+ </div>
+</div></section>
+
+<section id="contact"><div class="wrap"><div class="cta rv">
+ <div><h3>Let’s work together!</h3><p>Open to internships, projects and collaboration.</p></div>
+ <div><small>Email</small><span>salmann4979@gmail.com</span></div>
+ <div><small>Phone</small><span>+91 80867 56642</span></div>
+ <div><small>Location</small><span>Kerala, India</span></div>
+ <a class="btn p" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=salmann4979@gmail.com" target="_blank" rel="noopener">Get in touch</a>
+</div></div></section>
+
+<footer><div class="wrap">© 2026 Salman Fariz A. All rights reserved.</div></footer>
+
+<script>
+document.documentElement.classList.add('js');
+const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+// typing roles
+const roles=['Full Stack Developer','Embedded Systems Builder','Co-Founder & CTO','AI Enthusiast'],t=document.getElementById('type');
+let r=0,c=0,del=false;
+(function type(){const w=roles[r];t.textContent=w.slice(0,c);
+ if(!del&&c<w.length)c++;else if(del&&c>0)c--;else{del=!del;if(!del)r=(r+1)%roles.length;}
+ setTimeout(type,still?2000:(!del&&c===w.length)?1600:del?40:80)})();
+// reveal, counters, skill bars
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;el.classList.add('in');
+ el.querySelectorAll('.bar i').forEach(b=>b.style.width=b.dataset.w+'%');
+ el.querySelectorAll('.num').forEach(n=>{const end=+n.dataset.n;let v=0;const s=setInterval(()=>{v++;n.textContent=v;if(v>=end)clearInterval(s)},end>9?70:250)});
+ io.unobserve(el)}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+// cursor glow
+const g=document.getElementById('glow');
+addEventListener('pointermove',e=>{g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
+// particle network
+const cv=document.getElementById('bg'),x=cv.getContext('2d');let W,H,P=[];
+function size(){W=cv.width=innerWidth;H=cv.height=innerHeight;const n=Math.min(70,Math.floor(W*H/18000));
+ P=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35}))}
+size();addEventListener('resize',size);
+(function draw(){x.clearRect(0,0,W,H);
+ for(let i=0;i<P.length;i++){const a=P[i];a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;
+  x.fillStyle='rgba(255,255,255,.6)';x.beginPath();x.arc(a.x,a.y,1.4,0,7);x.fill();
+  for(let j=i+1;j<P.length;j++){const b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+   if(d<120){x.strokeStyle='rgba(255,255,255,'+(.18*(1-d/120))+')';x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}}
+ if(!still)requestAnimationFrame(draw)})();
+
+// mobile menu
+const navBar=document.querySelector('nav'),menuBtn=document.getElementById('menu');
+menuBtn.addEventListener('click',()=>{const o=navBar.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o)});
+navBar.querySelectorAll('ul a').forEach(a=>a.addEventListener('click',()=>{navBar.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));
+if(matchMedia('(pointer:coarse)').matches){document.querySelectorAll('a[href*="mail.google.com"]').forEach(a=>{a.href='mailto:salmann4979@gmail.com';a.removeAttribute('target')})}
+</script>
+</body>
+</html>
