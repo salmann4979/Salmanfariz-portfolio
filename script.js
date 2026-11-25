@@ -1,3 +1,4 @@
+document.documentElement.classList.add('js');
 const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
 // typing roles
 const roles=['Full Stack Developer','Embedded Systems Builder','Co-Founder & CTO','AI Enthusiast'],t=document.getElementById('type');
