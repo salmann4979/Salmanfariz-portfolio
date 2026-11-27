@@ -154,6 +154,63 @@ body.loading{overflow:hidden}
 #tout{height:21rem}
 .neo{display:flex;gap:1.4rem;align-items:flex-start}.neo pre{margin:0;font:inherit;color:#4ade80;line-height:1.25}
 @media (max-width:520px){.neo pre{display:none}#tout{height:19rem}}
+/* ===== Project Universe ===== */
+#universe{overflow:hidden}
+.uni-sub{margin-top:-.8rem}
+.uni-box{display:grid;grid-template-columns:1.2fr 1fr;gap:2.5rem;align-items:center}
+.uni{position:relative;width:min(34rem,100%);aspect-ratio:1;margin:auto}
+.uni:hover *{animation-play-state:paused}
+.core{position:absolute;inset:calc(50% - 2.1rem);border-radius:50%;background:#fff;color:#000;display:grid;place-items:center;font-weight:800;animation:pulse 4s ease-in-out infinite}
+.orb{position:absolute;inset:0;animation:spin var(--d) linear infinite;pointer-events:none}
+.orb::before{content:"";position:absolute;inset:calc(50% - var(--r));border:1px solid var(--line);border-radius:50%}
+.arm{position:absolute;left:50%;top:50%;width:var(--r);border-top:1px dashed rgba(255,255,255,.1);transform-origin:0 0;transform:rotate(var(--a))}
+.pw{position:absolute;right:0;top:0;transform:translate(50%,-50%)}
+.pl{display:block;background:none;border:0;padding:0;cursor:pointer;color:var(--text);pointer-events:auto;animation:spin var(--d) linear infinite reverse}
+.pi{display:flex;flex-direction:column;align-items:center;gap:.35rem;transform:rotate(calc(-1 * var(--a)))}
+.dot{width:1.6rem;height:1.6rem;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,#777 55%,#1a1a1a);box-shadow:0 0 18px rgba(255,255,255,.3);transition:.3s}
+.pl:hover .dot,.pl.on .dot{transform:scale(1.35);box-shadow:0 0 0 3px #000,0 0 0 4px #fff,0 0 30px rgba(255,255,255,.6)}
+.pi em{font:400 .7rem "JetBrains Mono",monospace;color:var(--muted);white-space:nowrap}
+.pdet{background:var(--card);border:1px solid var(--line);border-radius:1rem;padding:1.6rem;min-height:14rem}
+.pd-hint,.pd-na{color:var(--muted);font-size:.9rem}
+.pd-tag{font:400 .75rem "JetBrains Mono",monospace;color:var(--muted)}
+.pdet h3{font-size:1.3rem;margin:.3rem 0 .5rem}.pdet p{color:var(--muted);font-size:.93rem}
+.pd-t{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0}.pd-t span{font-size:.75rem;padding:.25rem .65rem;border:1px solid var(--line);border-radius:2rem}
+.pdet ul{margin:0 0 1.2rem 1.1rem;color:#cfcfdc;font-size:.88rem;line-height:1.8}
+/* ===== Digital Fingerprint ===== */
+.fp-box{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.fp{position:relative;width:min(20rem,76vw);margin:auto;touch-action:pan-y;transition:transform .25s}
+.fp svg{width:100%;display:block;overflow:visible}
+.fp-r path,.fp-h path{fill:none;stroke-linecap:round;stroke-width:1.6}
+.fp-r path{stroke:rgba(255,255,255,.2)}.fp-h path{stroke:#fff}
+.fp-p line{stroke:rgba(255,255,255,.14);stroke-width:.6}
+.fp-p circle{fill:#fff;animation:tw 3s ease-in-out infinite;animation-delay:calc(var(--i) * -.4s)}
+@keyframes tw{50%{opacity:.15}}
+.scan{position:absolute;left:-6%;right:-6%;top:0;height:2px;background:linear-gradient(90deg,transparent,#fff,transparent);box-shadow:0 0 16px 2px rgba(255,255,255,.45);animation:scan 2.6s ease-in-out infinite alternate;pointer-events:none}
+@keyframes scan{to{top:100%}}
+.fp-id small{font:400 .8rem "JetBrains Mono",monospace;color:var(--muted)}
+.fp-id h3{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;margin:.4rem 0}
+.fp-id p{color:var(--muted)}
+.fp-id dl{display:grid;grid-template-columns:auto 1fr;gap:.5rem 1.2rem;margin-top:1.4rem;padding:1.2rem;background:var(--card);border:1px solid var(--line);border-radius:1rem;font:400 .82rem "JetBrains Mono",monospace}
+.fp-id dt{color:var(--muted)}.fp-id dd{color:#fff;word-break:break-all}
+/* ===== Ask My Portfolio ===== */
+.ask-btn{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:50;background:#fff;color:#000;border:0;border-radius:2rem;padding:.75rem 1.2rem;font:600 .9rem "Outfit",sans-serif;box-shadow:0 8px 30px rgba(255,255,255,.2);cursor:pointer;transition:.3s}
+.ask-btn:hover{transform:translateY(-2px)}
+.ask{position:fixed;right:1rem;bottom:calc(4.4rem + env(safe-area-inset-bottom,0px));z-index:50;width:min(22rem,calc(100vw - 2rem));height:min(31rem,68vh);display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:1rem;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.7)}
+.ask[hidden]{display:none}
+.ask-h{display:flex;justify-content:space-between;align-items:center;padding:.8rem 1rem;border-bottom:1px solid var(--line);font-size:.95rem}
+.ask-h button{background:none;border:0;color:var(--muted);font-size:1.4rem;line-height:1;cursor:pointer}
+.ask-m{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.6rem;font-size:.88rem}
+.msg{max-width:86%;padding:.55rem .8rem;border-radius:.8rem;white-space:pre-line;line-height:1.5}
+.msg.b{background:var(--card2);border:1px solid var(--line);align-self:flex-start}
+.msg.u{background:#fff;color:#000;align-self:flex-end}
+.ask-q{display:flex;gap:.4rem;overflow-x:auto;padding:0 1rem .7rem;scrollbar-width:none}
+.ask-q button{flex:none;font:400 .75rem "Outfit",sans-serif;color:var(--text);background:none;border:1px solid var(--line);border-radius:2rem;padding:.35rem .7rem;cursor:pointer}
+.ask-q button:hover{border-color:#fff}
+#askF{display:flex;border-top:1px solid var(--line)}
+#askI{flex:1;min-width:0;background:none;border:0;outline:0;color:var(--text);padding:.85rem 1rem;font:400 16px "Outfit",sans-serif}
+#askF button{background:none;border:0;color:#fff;padding:0 1rem;font-size:1.1rem;cursor:pointer}
+@media (max-width:900px){.uni-box,.fp-box{grid-template-columns:1fr}}
+@media (max-width:520px){.dot{width:1.15rem;height:1.15rem}.pi em{font-size:.6rem}.core{inset:calc(50% - 1.6rem);font-size:.85rem}}
 </style>
 </head>
 <body>
@@ -170,7 +227,7 @@ body.loading{overflow:hidden}
  <div class="grid2">
   <div class="rv">
    <span class="chip"><span class="wave">👋</span> Hello, I’m</span>
-<h1>Salman <span>Fariz A</span></h1>
+   <h1>Salman <span>Fariz A</span></h1>
    <p class="role"><span id="type"></span><span class="cur"></span></p>
    <p class="lead">Co-Founder &amp; CTO of Vikastra Technologies and a B.Tech Data Science student. I build web apps, mobile apps and smart hardware that solve real problems.</p>
    <div class="row">
@@ -235,6 +292,15 @@ body.loading{overflow:hidden}
  </div>
 </div></section>
 
+<section id="universe"><div class="wrap">
+ <h2 class="rv">Project universe</h2>
+ <p class="lead rv uni-sub">Every project is a planet. Tap one to explore it.</p>
+ <div class="uni-box rv">
+  <div class="uni" id="uni"><div class="core">SF</div></div>
+  <div class="pdet" id="pdet" aria-live="polite"><p class="pd-hint">Select a planet to see the project details.</p></div>
+ </div>
+</div></section>
+
 <section id="terminal"><div class="wrap">
  <h2 class="rv mono"><span class="gr">~</span>/salman <span class="dim">$</span> ./portfolio <span class="dim">--interactive</span></h2>
  <p class="lead rv tsub">A working shell. Type <code>help</code>, use Tab to autocomplete and ↑ for history, or tap a command.</p>
@@ -246,6 +312,19 @@ body.loading{overflow:hidden}
  <div class="tchips rv"><button type="button" class="tchip" data-c="neofetch">neofetch</button><button type="button" class="tchip" data-c="ls">ls</button><button type="button" class="tchip" data-c="skills">skills</button><button type="button" class="tchip" data-c="projects">projects</button><button type="button" class="tchip" data-c="git log">git log</button><button type="button" class="tchip" data-c="hire">hire</button></div>
 </div></section>
 
+<section id="identity"><div class="wrap">
+ <h2 class="rv">Digital fingerprint</h2>
+ <div class="fp-box rv">
+  <div class="fp" id="fp"><svg id="fpsvg" viewBox="0 0 300 340" role="img" aria-label="Animated digital fingerprint of Salman Fariz A"></svg><div class="scan"></div></div>
+  <div class="fp-id">
+   <small>// digital identity</small>
+   <h3>Salman Fariz A</h3>
+   <p>Full Stack &amp; Embedded Developer · Co-Founder &amp; CTO, Vikastra Technologies</p>
+   <dl><dt>signature</dt><dd id="fpsig">—</dd><dt>stack</dt><dd>MERN · C · ESP32 · Flutter</dd><dt>status</dt><dd id="fpst">scanning…</dd></dl>
+  </div>
+ </div>
+</div></section>
+
 <section id="contact"><div class="wrap"><div class="cta rv">
  <div><h3>Let’s work together!</h3><p>Open to internships, projects and collaboration.</p></div>
  <div><small>Email</small><span>salmann4979@gmail.com</span></div>
@@ -255,6 +334,13 @@ body.loading{overflow:hidden}
 </div></div></section>
 
 <footer><div class="wrap">© 2026 Salman Fariz A. All rights reserved.</div></footer>
+<button class="ask-btn" id="askBtn" aria-expanded="false" aria-controls="ask">✦ Ask</button>
+<div class="ask" id="ask" hidden>
+ <div class="ask-h"><b>Ask my portfolio</b><button id="askX" aria-label="Close">×</button></div>
+ <div class="ask-m" id="askM" aria-live="polite"></div>
+ <div class="ask-q" id="askQ"></div>
+ <form id="askF"><input id="askI" placeholder="Ask about Salman…" autocomplete="off" aria-label="Your question"><button aria-label="Send">→</button></form>
+</div>
 
 <script>
 document.documentElement.classList.add('js');
@@ -332,7 +418,83 @@ document.querySelectorAll('.tchip').forEach(b=>b.addEventListener('click',()=>ru
 let tStarted=false;
 new IntersectionObserver((es,o)=>{if(!es[0].isIntersecting||tStarted)return;tStarted=true;o.disconnect();
  say('<span class="dim">Last login: '+new Date().toDateString()+' on ttys001</span>');let i=0;const w='neofetch';
- const iv=setInterval(()=>{tIn.value=w.slice(0,++i);if(i>=w.length){clearInterval(iv);setTimeout(()=>{run(w);tIn.value='';say('<span class="dim">type "help" for more commands</span>')},300)}},110)},{threshold:.4}).observe(document.querySelector('.term'));
+const iv=setInterval(()=>{tIn.value=w.slice(0,++i);if(i>=w.length){clearInterval(iv);setTimeout(()=>{run(w);tIn.value='';say('<span class="dim">type "help" for more commands</span>')},300)}},110)},{threshold:.4}).observe(document.querySelector('.term'));
+
+// ===== Project Universe · Ask My Portfolio · Digital Fingerprint =====
+(()=>{
+// Project data: add links as gh:'https://github.com/...' and demo:'https://...'
+const PJ=[
+{n:'EV Failure Prediction System',s:'AI',o:0,k:['ev\\b','electric','failure','vikastra project'],d:'Predicts failures across EV components by tracking how battery, motor and controller health affect each other.',t:['AI','Data Science'],f:['Cross-component failure prediction','Battery, motor and controller health tracking']},
+{n:'Duck Robot',s:'ESP32',o:0,k:['duck','robot'],d:'Robot with servo-driven movement and expressions, IR obstacle detection and DC motor navigation.',t:['ESP32','Embedded C'],f:['Servo movement and expressions','IR obstacle detection','DC motor navigation']},
+{n:'Airbnb Clone',s:'MERN',o:1,k:['airbnb','mern','rental'],d:'Full stack rental platform built on the MERN stack.',t:['React','Node.js','Express','MongoDB','JWT'],f:['Register and login','Property listings with image upload','Location search and filters','Date-based booking with availability check','User dashboard']},
+{n:'Quick SOS Campus',s:'Flutter',o:1,k:['sos','safety','women'],d:'A women’s safety app for campuses with one-tap emergency alerts to trusted contacts.',t:['Flutter'],f:['One-tap emergency alerts','Trusted contacts']},
+{n:'Tic-Tac-Toe AI',s:'C',o:1,k:['tic','game'],d:'A computer opponent for Tic-Tac-Toe, written in C.',t:['C'],f:['AI game opponent']},
+{n:'Student Event Management',s:'Java',o:2,k:['event','java'],d:'Desktop system for admins to manage events and students, and for students to register and track events.',t:['Java Swing','MySQL','JDBC'],f:['Admin dashboard and event management','Student registrations','Statistics and reports']},
+{n:'Heart Rate & SpO₂ Monitor',s:'MAX30102',o:2,k:['heart','spo2','oxygen','max30102'],d:'Measures heart rate and blood oxygen levels using the MAX30102 sensor.',t:['MAX30102 sensor'],f:['Heart rate measurement','Blood oxygen (SpO₂) measurement']},
+{n:'Distance Alert System',s:'Ultrasonic',o:2,k:['distance','ultrasonic'],d:'Warns when an object comes too close, using an ultrasonic distance sensor.',t:['Ultrasonic sensor'],f:['Proximity alert']}];
+
+// --- Project Universe ---
+const U=document.getElementById('uni'),D=document.getElementById('pdet');
+[23,34,44].forEach((r,o)=>{const ps=PJ.filter(p=>p.o===o),orb=document.createElement('div');
+ orb.className='orb';orb.style.cssText='--r:'+r+'%;--d:'+[40,60,85][o]+'s';
+ ps.forEach((p,i)=>{const arm=document.createElement('div');arm.className='arm';arm.style.setProperty('--a',(360/ps.length*i+o*40)+'deg');
+  arm.innerHTML='<div class="pw"><button class="pl" aria-label="'+p.n+'"><span class="pi"><i class="dot"></i><em>'+p.s+'</em></span></button></div>';
+  arm.querySelector('.pl').addEventListener('click',e=>show(p,e.currentTarget));orb.appendChild(arm)});
+ U.appendChild(orb)});
+function show(p,b){U.querySelectorAll('.pl.on').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+ const L=(u,t)=>u?'<a class="btn" href="'+u+'" target="_blank" rel="noopener">'+t+'</a>':'';
+ D.innerHTML='<small class="pd-tag">'+p.s+'</small><h3>'+p.n+'</h3><p>'+p.d+'</p><div class="pd-t">'+p.t.map(x=>'<span>'+x+'</span>').join('')+'</div><ul>'+p.f.map(x=>'<li>'+x+'</li>').join('')+'</ul><div class="row">'+L(p.gh,'GitHub ↗')+L(p.demo,'Live demo ↗')+(p.gh||p.demo?'':'<span class="pd-na">GitHub and live demo links coming soon.</span>')+'</div>';
+ if(innerWidth<900)D.scrollIntoView({behavior:'smooth',block:'nearest'})}
+
+// --- Ask My Portfolio ---
+const has=(q,k)=>new RegExp('\\b'+k).test(q);
+const KB=[
+[['skill','stack','tech','language','know','tool','good at'],'Salman works with:\n• Web: HTML, CSS, JavaScript, React, Node.js, Express, MongoDB\n• Embedded: C, ESP32, servo & DC motors, IR and ultrasonic sensors\n• Apps: Flutter, Java Swing, MySQL\n• Data: Python, Git'],
+[['educat','stud','college','degree','b\\.?tech','cgpa','universit','ukf'],'He is a second-year B.Tech Data Science student at UKF College of Engineering and Technology, Kerala, with a CGPA of 8.33.'],
+[['experience','work','job','vikastra','startup','cto','founder','role'],'Salman is the Co-Founder & CTO of Vikastra Technologies, where he leads work on AI-based failure prediction for electric vehicles.'],
+[['achiev','certif','award','accomplish','highlight'],'Highlights from his portfolio:\n• Certified Full Stack Developer (Smarted)\n• Co-Founder & CTO of Vikastra Technologies\n• CGPA 8.33 in B.Tech Data Science\n• 8 projects across AI, web, mobile and embedded systems'],
+[['contact','email','mail','reach','hire','phone','connect','intern'],'You can reach Salman at salmann4979@gmail.com or +91 80867 56642. He is open to internships, projects and collaboration.'],
+[['location','where','based','live','kerala'],'He is based in Kerala, India.'],
+[['project','built','build','made','portfolio'],'He has built 8 projects: '+PJ.map(p=>p.n).join(', ')+'.\nAsk about any one of them for details.'],
+[['who','about','yourself','salman','introduc'],'Salman Fariz A is a B.Tech Data Science student and Co-Founder & CTO of Vikastra Technologies. He builds web apps, mobile apps and smart hardware that solve real problems.'],
+[['hi\\b','hello','hey'],'Hi! Ask me anything about Salman’s skills, projects, education, experience or achievements.']];
+function answer(q){q=q.toLowerCase();
+ const p=PJ.find(p=>p.k.some(k=>has(q,k)));
+ if(p)return p.n+'\n'+p.d+'\nBuilt with: '+p.t.join(', ')+'.';
+ let best='',sc=0;KB.forEach(([ks,a])=>{const n=ks.filter(k=>has(q,k)).length;if(n>sc){sc=n;best=a}});
+ return best||'I can only answer from what’s on Salman’s portfolio. Try asking about his skills, projects, education, experience or achievements.'}
+const A=document.getElementById('ask'),AB=document.getElementById('askBtn'),AM=document.getElementById('askM'),AI=document.getElementById('askI');
+const msg=(t,c)=>{const d=document.createElement('div');d.className='msg '+c;d.textContent=t;AM.appendChild(d);AM.scrollTop=AM.scrollHeight};
+const ask=q=>{if(!q.trim())return;msg(q,'u');setTimeout(()=>msg(answer(q),'b'),350)};
+const tog=o=>{A.hidden=!o;AB.setAttribute('aria-expanded',o);AB.textContent=o?'× Close':'✦ Ask';if(o&&!AM.children.length)msg('Hi! I’m Salman’s portfolio assistant. Ask me about his skills, projects, education, experience or achievements.','b')};
+AB.addEventListener('click',()=>tog(A.hidden));document.getElementById('askX').addEventListener('click',()=>tog(false));
+['What are his skills?','Tell me about his projects','Where does he study?','What is his experience?','Any achievements?','How can I contact him?'].forEach(q=>{const b=document.createElement('button');b.type='button';b.textContent=q;b.onclick=()=>ask(q);document.getElementById('askQ').appendChild(b)});
+document.getElementById('askF').addEventListener('submit',e=>{e.preventDefault();ask(AI.value);AI.value=''});
+
+// --- Digital Fingerprint ---
+const S=document.getElementById('fpsvg'),F=document.getElementById('fp'),NS='http://www.w3.org/2000/svg';
+const el=(n,a,p)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);(p||S).appendChild(e);return e};
+let h=2166136261;for(const ch of 'Salman Fariz A|Full Stack & Embedded Developer|Vikastra'){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)>>>0}
+let sd=h;const rnd=()=>{sd=sd+0x6D2B79F5|0;let t=Math.imul(sd^sd>>>15,1|sd);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
+const hx=h.toString(16).toUpperCase().padStart(8,'0'),h2=Math.imul(h,2654435761)>>>0;
+document.getElementById('fpsig').textContent='SFA-'+hx.slice(0,4)+'-'+hx.slice(4)+'-'+h2.toString(16).toUpperCase().padStart(8,'0').slice(0,4);
+const defs=el('defs',{}),gr=el('radialGradient',{id:'fpg'},defs);el('stop',{offset:0,'stop-color':'#fff'},gr);el('stop',{offset:1,'stop-color':'#fff','stop-opacity':0},gr);
+const mk=el('mask',{id:'fpm'},defs),mc=el('circle',{r:75,cx:150,cy:175,fill:'url(#fpg)'},mk);
+const base=el('g',{class:'fp-r'}),hi=el('g',{class:'fp-h',mask:'url(#fpm)'});
+for(let i=0;i<16;i++){const r=10+i*7.5,gap=(i%3?.25:.6)+rnd()*.3;let d='';
+ for(let t=Math.PI/2+gap;t<=Math.PI*2.5-gap;t+=.06){const w=1+.035*Math.sin(t*5+i*.9);d+=(d?'L':'M')+(150+Math.cos(t)*r*w).toFixed(1)+' '+(175+Math.sin(t)*r*1.28*w).toFixed(1)}
+ const da=Math.round(30+rnd()*120)+' '+Math.round(4+rnd()*10);[base,hi].forEach(g=>el('path',{d,'stroke-dasharray':da},g))}
+const pts=[...Array(10)].map(()=>{const a=rnd()*6.283,r=60+rnd()*80;return[150+Math.cos(a)*r,175+Math.sin(a)*r*1.2]}),pg=el('g',{class:'fp-p'});
+pts.forEach((p,i)=>pts.slice(i+1).forEach(q=>{if(Math.hypot(p[0]-q[0],p[1]-q[1])<90)el('line',{x1:p[0],y1:p[1],x2:q[0],y2:q[1]},pg)}));
+pts.forEach((p,i)=>el('circle',{cx:p[0],cy:p[1],r:2,style:'--i:'+i},pg));
+let tx=150,ty=175,cx=150,cy=175,act=false,vis=false,seen=false;
+F.addEventListener('pointermove',e=>{const b=S.getBoundingClientRect(),u=(e.clientX-b.left)/b.width,v=(e.clientY-b.top)/b.height;tx=u*300;ty=v*340;act=true;
+ F.style.transform='perspective(800px) rotateX('+((.5-v)*12).toFixed(1)+'deg) rotateY('+((u-.5)*12).toFixed(1)+'deg)'});
+F.addEventListener('pointerleave',()=>{act=false;F.style.transform=''});
+function fl(){if(!vis)return;const k=performance.now()/1000;if(!act){tx=150+Math.cos(k*.7)*70;ty=175+Math.sin(k*1.1)*90}
+ cx+=(tx-cx)*.12;cy+=(ty-cy)*.12;mc.setAttribute('cx',cx.toFixed(1));mc.setAttribute('cy',cy.toFixed(1));if(!still)requestAnimationFrame(fl)}
+new IntersectionObserver(es=>{vis=es[0].isIntersecting;if(vis){fl();if(!seen){seen=true;setTimeout(()=>document.getElementById('fpst').textContent='identity verified ✓',2600)}}}).observe(F);
+})();
 </script>
 </body>
 </html>
