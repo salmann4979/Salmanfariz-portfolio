@@ -264,3 +264,637 @@ new IntersectionObserver((es, o) => {
     }, 110);
 
 }, { threshold: 0.4 }).observe(document.querySelector('.term'));
+
+/* ==========================================
+   SALMAN FARIZ - PORTFOLIO FEATURES
+   1. Project Universe
+   2. Ask My Portfolio
+   3. Digital Fingerprint
+   ========================================== */
+
+(() => {
+    "use strict";
+
+    // ======================================
+    // PROJECT DATA
+    // Automatically reads existing project cards
+    // ======================================
+
+    const projectsSection = document.querySelector("#projects");
+    const aboutSection = document.querySelector("#about");
+
+    if (!projectsSection || !aboutSection) {
+        console.warn("Portfolio sections not found.");
+        return;
+    }
+
+    const projects = [
+        ...projectsSection.querySelectorAll(".card")
+    ].map((card, index) => ({
+        name:
+            card.querySelector("h3")?.textContent.trim() ||
+            `Project ${index + 1}`,
+
+        stack:
+            card.querySelector("small")?.textContent.trim() ||
+            "Development Project",
+
+        description:
+            card.querySelector("p")?.textContent.trim() ||
+            "Explore this project."
+    }));
+
+    const escapeHTML = (value) =>
+        String(value).replace(/[&<>"']/g, char => ({
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;"
+        })[char]);
+
+    // ======================================
+    // 1. PROJECT UNIVERSE
+    // ======================================
+
+    const universe = document.createElement("section");
+
+    universe.id = "project-universe";
+
+    universe.innerHTML = `
+        <div class="wrap">
+
+            <h2 class="rv">Project Universe</h2>
+
+            <p class="lead rv">
+                Explore the work behind the ideas.
+                Select a planet to discover a project.
+            </p>
+
+            <div class="sf-extra sf-panel sf-universe rv">
+
+                <div class="sf-space">
+
+                    <div class="sf-orbit"
+                        style="--orbit:150px;--speed:28s">
+                    </div>
+
+                    <div class="sf-orbit"
+                        style="--orbit:245px;--speed:38s">
+                    </div>
+
+                    <div class="sf-orbit"
+                        style="--orbit:340px;--speed:52s">
+                    </div>
+
+                    <div class="sf-core">SF</div>
+
+                    <div id="sf-planets"></div>
+
+                </div>
+
+                <article class="sf-project-info">
+
+                    <span class="sf-kicker">
+                        Selected Project
+                    </span>
+
+                    <h3 id="sf-project-name">
+                        Choose a planet
+                    </h3>
+
+                    <div class="sf-tags"
+                        id="sf-project-stack">
+                    </div>
+
+                    <p class="sf-muted"
+                        id="sf-project-description">
+                        Each planet represents one of your projects.
+                    </p>
+
+                </article>
+
+            </div>
+        </div>
+    `;
+
+    projectsSection.parentNode.insertBefore(
+        universe,
+        projectsSection
+    );
+
+    const planetHost =
+        universe.querySelector("#sf-planets");
+
+    const planetColors = [
+        "#777",
+        "#aaa",
+        "#555",
+        "#999",
+        "#666",
+        "#bbb",
+        "#888",
+        "#444"
+    ];
+
+    projects.forEach((project, index) => {
+
+        const angle =
+            (Math.PI * 2 * index / Math.max(projects.length, 1))
+            - Math.PI / 2;
+
+        const radius =
+            75 + (index % 3) * 48;
+
+        const planet =
+            document.createElement("button");
+
+        planet.type = "button";
+
+        planet.className = "sf-planet";
+
+        planet.style.left =
+            `calc(50% + ${Math.cos(angle) * radius}px - 27px)`;
+
+        planet.style.top =
+            `calc(50% + ${Math.sin(angle) * radius}px - 27px)`;
+
+        planet.style.background =
+            `radial-gradient(circle at 30% 25%,
+            ${planetColors[index % planetColors.length]},
+            #222 58%, #07070b 82%)`;
+
+        planet.textContent =
+            String(index + 1).padStart(2, "0");
+
+        planet.setAttribute(
+            "aria-label",
+            project.name
+        );
+
+        planet.setAttribute(
+            "aria-pressed",
+            index === 0 ? "true" : "false"
+        );
+
+        planet.addEventListener("click", () => {
+            selectProject(index);
+        });
+
+        planetHost.appendChild(planet);
+
+    });
+
+    function selectProject(index) {
+
+        const project = projects[index];
+
+        if (!project) return;
+
+        universe.querySelector(
+            "#sf-project-name"
+        ).textContent = project.name;
+
+        universe.querySelector(
+            "#sf-project-description"
+        ).textContent = project.description;
+
+        universe.querySelector(
+            "#sf-project-stack"
+        ).innerHTML = project.stack
+            .split(/[,·|]/)
+            .map(item => `
+                <span class="sf-tag">
+                    ${escapeHTML(item.trim())}
+                </span>
+            `)
+            .join("");
+
+        [...planetHost.children].forEach(
+            (planet, planetIndex) => {
+
+                planet.setAttribute(
+                    "aria-pressed",
+                    String(planetIndex === index)
+                );
+
+            }
+        );
+
+    }
+
+    if (projects.length > 0) {
+        selectProject(0);
+    }
+
+    // ======================================
+    // 2. DIGITAL FINGERPRINT
+    // ======================================
+
+    const fingerprint = document.createElement("div");
+
+    fingerprint.className = "sf-extra";
+
+    fingerprint.innerHTML = `
+
+        <div class="sf-panel sf-fingerprint rv">
+
+            <div class="sf-finger-art">
+
+                <svg viewBox="0 0 220 220"
+                    role="img"
+                    aria-label="Digital fingerprint">
+
+                    <path d="
+                    M110 18C62 18 30 54 30 101c0 22 5 43 13 62
+                    M110 34c-38 0-64 29-64 67 0 25 5 44 13 62
+                    M110 50c-29 0-48 22-48 52 0 28 6 48 16 66
+                    M110 66c-20 0-32 16-32 37 0 28 7 48 19 67
+                    M110 82c-11 0-17 9-17 21 0 25 7 45 18 62
+                    M110 18c48 0 80 36 80 83 0 29-7 56-21 80
+                    M110 34c38 0 64 29 64 67 0 34-9 61-25 84
+                    M110 50c29 0 48 22 48 52 0 35-10 63-27 84
+                    M110 66c20 0 32 16 32 37 0 34-10 60-25 82
+                    M110 82c11 0 17 9 17 21 0 30-10 53-22 75
+                    M110 98c4 0 7 4 7 9 0 22-5 42-7 55
+                    "/>
+
+                </svg>
+
+            </div>
+
+            <div class="sf-identity">
+
+                <span class="sf-kicker">
+                    Digital Identity
+                </span>
+
+                <div class="sf-signature">
+                    SALMAN FARIZ
+                </div>
+
+                <div class="sf-role">
+                    DEVELOPER · BUILDER · LEARNER
+                </div>
+
+                <div class="sf-traits">
+
+                    <span>Full Stack Development</span>
+
+                    <span>Embedded Systems</span>
+
+                    <span>Problem Solving</span>
+
+                    <span>Vikastra Technologies</span>
+
+                </div>
+
+                <span class="sf-muted">
+                    A visual signature for my work.
+                </span>
+
+            </div>
+
+        </div>
+
+    `;
+
+    const aboutWrap =
+        aboutSection.querySelector(".wrap");
+
+    if (aboutWrap) {
+        aboutWrap.appendChild(
+            fingerprint.firstElementChild
+        );
+    }
+
+    // ======================================
+    // 3. ASK MY PORTFOLIO
+    // ======================================
+
+    const launcher =
+        document.createElement("button");
+
+    launcher.className =
+        "sf-chat-launch";
+
+    launcher.type = "button";
+
+    launcher.textContent = "✦";
+
+    launcher.setAttribute(
+        "aria-label",
+        "Open Ask My Portfolio"
+    );
+
+    const chat =
+        document.createElement("div");
+
+    chat.className =
+        "sf-panel sf-chat";
+
+    chat.setAttribute("role", "dialog");
+
+    chat.innerHTML = `
+
+        <div class="sf-chat-head">
+
+            <div>
+
+                <strong>Ask My Portfolio</strong>
+
+                <div class="sf-muted">
+                    ● Online · Portfolio Guide
+                </div>
+
+            </div>
+
+            <button type="button"
+                class="sf-quick"
+                id="sf-chat-close">
+                ×
+            </button>
+
+        </div>
+
+        <div class="sf-chat-log"
+            id="sf-chat-log"
+            aria-live="polite">
+
+            <div class="sf-msg">
+                Hi! I'm your portfolio assistant.
+                Ask me anything about Salman Fariz.
+            </div>
+
+        </div>
+
+        <div class="sf-quick-row">
+
+            <button class="sf-quick"
+                data-q="What are your skills?">
+                Skills
+            </button>
+
+            <button class="sf-quick"
+                data-q="Tell me about your projects.">
+                Projects
+            </button>
+
+            <button class="sf-quick"
+                data-q="What is your education?">
+                Education
+            </button>
+
+        </div>
+
+        <form class="sf-chat-form"
+            id="sf-chat-form">
+
+            <input
+                id="sf-chat-input"
+                placeholder="Ask a question..."
+                autocomplete="off"
+                aria-label="Your question"
+            >
+
+            <button type="submit">
+                Send
+            </button>
+
+        </form>
+
+    `;
+
+    document.body.append(
+        launcher,
+        chat
+    );
+
+    launcher.addEventListener("click", () => {
+        chat.classList.toggle("open");
+    });
+
+    chat.querySelector(
+        "#sf-chat-close"
+    ).addEventListener("click", () => {
+        chat.classList.remove("open");
+    });
+
+    const chatLog =
+        chat.querySelector("#sf-chat-log");
+
+    // ======================================
+    // ASSISTANT KNOWLEDGE BASE
+    // ======================================
+
+    function getAnswer(question) {
+
+        const q = question.toLowerCase();
+
+        const aboutText =
+            aboutSection.innerText;
+
+        if (
+            /skill|technology|stack|language/.test(q)
+        ) {
+            return `
+Salman's listed technical skills include:
+
+HTML, CSS, JavaScript, React,
+Node.js, Express, MongoDB,
+C, Java, Python, MySQL,
+Flutter, ESP32 and Git.
+            `.trim();
+        }
+
+        if (
+            /project|work|built|portfolio/.test(q)
+        ) {
+
+            if (!projects.length) {
+                return "Please explore the Projects section.";
+            }
+
+            return projects.map(
+                (project, index) =>
+                    `${index + 1}. ${project.name} — ${project.stack}`
+            ).join("\n");
+
+        }
+
+        if (
+            /education|college|study|cgpa/.test(q)
+        ) {
+            return `
+Salman is a B.Tech Data Science student
+at UKF College of Engineering and Technology, Kerala.
+The portfolio lists an 8.33 CGPA.
+            `.trim();
+        }
+
+        if (
+            /experience|startup|vikastra|role|cto/.test(q)
+        ) {
+            return `
+Salman is Co-Founder & CTO of
+Vikastra Technologies.
+            `.trim();
+        }
+
+        if (
+            /contact|email|hire|phone/.test(q)
+        ) {
+            return `
+Email: salmann4979@gmail.com
+Phone: +91 80867 56642
+
+Please use the Contact section to connect.
+            `.trim();
+        }
+
+        if (
+            /who|about|salman/.test(q)
+        ) {
+            return aboutText;
+        }
+
+        return `
+I can answer questions about:
+
+• Skills
+• Projects
+• Education
+• Experience
+• Contact information
+
+Try asking about one of these topics.
+        `.trim();
+
+    }
+
+    // ======================================
+    // CHAT MESSAGE HANDLER
+    // ======================================
+
+    function sendMessage(message) {
+
+        const question =
+            message.trim();
+
+        if (!question) return;
+
+        const userMessage =
+            document.createElement("div");
+
+        userMessage.className =
+            "sf-msg user";
+
+        userMessage.textContent =
+            question;
+
+        chatLog.appendChild(userMessage);
+
+        const botMessage =
+            document.createElement("div");
+
+        botMessage.className =
+            "sf-msg";
+
+        botMessage.textContent =
+            getAnswer(question);
+
+        chatLog.appendChild(botMessage);
+
+        chatLog.scrollTop =
+            chatLog.scrollHeight;
+
+    }
+
+    // Chat form
+
+    chat.querySelector(
+        "#sf-chat-form"
+    ).addEventListener("submit", event => {
+
+        event.preventDefault();
+
+        const input =
+            chat.querySelector("#sf-chat-input");
+
+        sendMessage(input.value);
+
+        input.value = "";
+
+    });
+
+    // Suggested questions
+
+    chat.querySelectorAll(
+        "[data-q]"
+    ).forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            sendMessage(
+                button.dataset.q
+            );
+
+        });
+
+    });
+
+    // ======================================
+    // REVEAL ANIMATION SUPPORT
+    // ======================================
+
+    if ("IntersectionObserver" in window) {
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("in");
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+        document.querySelectorAll(
+            "#project-universe .rv, .sf-fingerprint.rv"
+        ).forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+    } else {
+
+        document.querySelectorAll(
+            "#project-universe .rv, .sf-fingerprint.rv"
+        ).forEach(element => {
+
+            element.classList.add("in");
+
+        });
+
+    }
+
+    console.log(
+        "Salman Fariz Portfolio Features Loaded Successfully."
+    );
+
+})();
