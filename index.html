@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Salman Fariz A | Portfolio</title>
+<script>document.documentElement.classList.add('js')</script>
 <meta name="theme-color" content="#000000">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{color-scheme:dark;--bg:#000;--card:#0c0c12;--card2:#111119;--line:#1e1e2b;--text:#f4f4ff;--muted:#9a9ab0;--v:#ffffff;--v2:#ffffff;--p:#6b6b6b;--g:linear-gradient(90deg,#ffffff,#8a8a8a)}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -107,7 +108,7 @@ footer{border-top:1px solid var(--line);padding:1.5rem 0 calc(1.5rem + env(safe-
  nav ul{display:flex;position:absolute;top:100%;left:0;right:0;z-index:20;flex-direction:column;gap:0;margin:0;background:#000;border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .4s ease}
  nav ul a{display:block;padding:1rem 1.25rem;font-size:1.05rem}
  nav ul a::after{display:none}
- nav.open ul{max-height:22rem}
+ nav.open ul{max-height:26rem}
  nav.open .menu span:nth-child(1){transform:translateY(7px) rotate(45deg)}
  nav.open .menu span:nth-child(2){opacity:0}
  nav.open .menu span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
@@ -117,14 +118,51 @@ footer{border-top:1px solid var(--line);padding:1.5rem 0 calc(1.5rem + env(safe-
 .logo{white-space:nowrap}
 @media (max-width:900px){nav .wrap{gap:.75rem}}
 @media (max-width:520px){nav .btn .t{display:none}nav .btn{padding:.55rem .7rem}.logo{font-size:1.05rem}}
+#loader{display:none}
+.js #loader{display:grid;place-items:center;position:fixed;inset:0;z-index:100;background:#000;transition:transform .9s cubic-bezier(.7,0,.2,1);animation:ldsafe 0s 6s forwards}
+#loader.done{transform:translateY(-100%)}
+@keyframes ldsafe{to{transform:translateY(-100%);visibility:hidden}}
+.ld-in{text-align:center;padding:0 1rem}
+.ld-logo{display:inline-block;font-size:2.6rem;font-weight:800;animation:ldspin 1.6s ease-in-out infinite}
+@keyframes ldspin{50%{transform:perspective(400px) rotateY(180deg)}}
+.ld-name{font-size:clamp(1.5rem,6vw,2.6rem);font-weight:800;letter-spacing:.3em;margin:1.2rem 0 1.6rem;padding-left:.3em;overflow:hidden;white-space:nowrap}
+.ld-name span{display:inline-block;opacity:0;transform:translateY(100%);animation:ldup .6s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i) * .06s)}
+@keyframes ldup{to{opacity:1;transform:none}}
+.ld-bar{width:min(16rem,60vw);height:2px;background:#1e1e2b;margin:0 auto;overflow:hidden}
+.ld-bar i{display:block;height:100%;width:0;background:#fff}
+.ld-pct{margin-top:.8rem;font-size:.85rem;color:#9a9ab0;font-variant-numeric:tabular-nums;letter-spacing:.2em}
+body.loading{overflow:hidden}
+.tsub{margin-top:-.8rem}
+.term{background:#07070b;border:1px solid var(--line);border-radius:1rem;overflow:hidden;font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;box-shadow:0 30px 80px rgba(255,255,255,.06)}
+.tbar{display:flex;align-items:center;gap:.45rem;padding:.8rem 1rem;border-bottom:1px solid var(--line);background:#0c0c12}
+.tbar i{width:.75rem;height:.75rem;border-radius:50%;background:#ff5f57}.tbar i:nth-child(2){background:#febc2e}.tbar i:nth-child(3){background:#28c840}
+.tbar span{flex:1;text-align:center;font-size:.78rem;color:var(--muted);margin-right:2.4rem}
+#tout{height:18rem;overflow-y:auto;padding:1rem 1.1rem .4rem;font-size:.86rem;line-height:1.7}
+.tl{white-space:pre-wrap;word-break:break-word;color:#cfcfdc}
+.tl.cmd{margin-top:.6rem}.cmdtxt{color:#fff;font-weight:600}.tl.err{color:#7d7d8e}.tl.ok{color:#fff}
+#tform{display:flex;align-items:center;gap:.5rem;padding:.3rem 1.1rem 1rem;font-size:.86rem}
+#tform label{color:var(--muted);white-space:nowrap}
+#tin{flex:1;min-width:0;background:none;border:0;outline:0;color:#fff;font:inherit;caret-color:#fff}
+.tchips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.tchip{font:500 .85rem "JetBrains Mono",monospace;color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:2rem;padding:.45rem .95rem;cursor:pointer;transition:.25s}
+.tchip:hover{border-color:#fff;transform:translateY(-2px)}
+@media (max-width:520px){#tout{height:16rem;font-size:.78rem}#tform label{font-size:.75rem}#tin{font-size:16px}}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-weight:600;font-size:clamp(1.15rem,3.4vw,1.8rem);letter-spacing:-.02em}
+.gr{color:#4ade80}.bl{color:#60a5fa}.cy{color:#22d3ee}.ye{color:#facc15}.re{color:#f87171}.dim{color:#6b6b80}
+.tsub code{font-family:"JetBrains Mono",monospace;color:#4ade80;font-size:.9em}
+.term{border-color:#262633}
+#tout{height:21rem}
+.neo{display:flex;gap:1.4rem;align-items:flex-start}.neo pre{margin:0;font:inherit;color:#4ade80;line-height:1.25}
+@media (max-width:520px){.neo pre{display:none}#tout{height:19rem}}
 </style>
 </head>
 <body>
+<div id="loader" aria-hidden="true"><div class="ld-in"><div class="ld-logo">&lt;/&gt;</div><div class="ld-name"><span style="--i:0">S</span><span style="--i:1">A</span><span style="--i:2">L</span><span style="--i:3">M</span><span style="--i:4">A</span><span style="--i:5">N</span><span style="--i:6">&nbsp;</span><span style="--i:7">F</span><span style="--i:8">A</span><span style="--i:9">R</span><span style="--i:10">I</span><span style="--i:11">Z</span></div><div class="ld-bar"><i id="ldbar"></i></div><div class="ld-pct" id="ldpct">0%</div></div></div>
 <canvas id="bg"></canvas><div class="glow" id="glow"></div>
 <nav><div class="wrap">
  <a class="logo" href="#top"><b>&lt;/&gt;</b> Salman Fariz</a>
  <button class="menu" id="menu" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
- <ul><li><a href="#top">Home</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li></ul>
+ <ul><li><a href="#top">Home</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#terminal">Terminal</a></li><li><a href="#contact">Contact</a></li></ul>
  <a class="btn" href="cv.pdf" download aria-label="Download CV"><span class="t">Download CV</span> <svg class="i" viewBox="0 0 24 24"><path d="M12 4v12m-5-5 5 5 5-5M5 20h14"/></svg></a>
 </div></nav>
 
@@ -160,6 +198,7 @@ footer{border-top:1px solid var(--line);padding:1.5rem 0 calc(1.5rem + env(safe-
  </div>
 </div></header>
 
+
 <section id="about"><div class="wrap two">
  <div class="about rv">
   <h2>About me</h2>
@@ -186,61 +225,4 @@ footer{border-top:1px solid var(--line);padding:1.5rem 0 calc(1.5rem + env(safe-
  <h2 class="rv">Featured projects</h2>
  <div class="grid">
   <article class="card rv"><div class="thumb" style="background:linear-gradient(135deg,#0a0a0a,#3a3a3a)">EV · AI</div><div class="b"><h3>EV Failure Prediction System</h3><small>AI · Vikastra Technologies</small><p>Predicts failures across EV components by tracking how battery, motor and controller health affect each other.</p></div></article>
-  <article class="card rv"><div class="thumb" style="background:linear-gradient(135deg,#0a0a0a,#3a3a3a)">airbnb</div><div class="b"><h3>Airbnb Clone</h3><small>React, Node, Express, MongoDB</small><p>Full stack rental platform with login, listings, image upload, search, filters and date-based booking.</p></div></article>
-  <article class="card rv"><div class="thumb" style="background:linear-gradient(135deg,#0a0a0a,#3a3a3a)">SOS</div><div class="b"><h3>Quick SOS Campus</h3><small>Flutter</small><p>A women’s safety app for campuses with one-tap emergency alerts to trusted contacts.</p></div></article>
-  <article class="card rv"><div class="thumb" style="background:linear-gradient(135deg,#0a0a0a,#3a3a3a)">EVENTS</div><div class="b"><h3>Student Event Management</h3><small>Java Swing, MySQL, JDBC</small><p>Desktop system for admins to manage events and students, and for students to register and track events.</p></div></article>
-  <article class="card rv"><div class="thumb" style="background:linear-gradient(135deg,#0a0a0a,#3a3a3a)">DUCK BOT</div><div class="b"><h3>Duck Robot</h3><small>ESP32, Embedded C</small><p>Robot with servo-driven movement and expressions, IR obstacle detection and DC motor navigation.</p></div></article>
-  <article class="card rv"><div class="thumb" style="background:linear-gradient(135deg,#0a0a0a,#3a3a3a)">♥ SpO₂</div><div class="b"><h3>Heart Rate &amp; SpO₂ Monitor</h3><small>MAX30102 sensor</small><p>Measures heart rate and blood oxygen levels using the MAX30102 pulse oximetry sensor.</p></div></article>
-  <article class="card rv"><div class="thumb" style="background:linear-gradient(135deg,#0a0a0a,#3a3a3a)">DISTANCE</div><div class="b"><h3>Distance Alert System</h3><small>Ultrasonic sensor</small><p>Warns when an object comes too close, using an ultrasonic distance sensor.</p></div></article>
-  <article class="card rv"><div class="thumb" style="background:linear-gradient(135deg,#0a0a0a,#3a3a3a)">X | O</div><div class="b"><h3>Tic-Tac-Toe AI</h3><small>C</small><p>A computer opponent for Tic-Tac-Toe, written in C.</p></div></article>
- </div>
-</div></section>
-
-<section id="contact"><div class="wrap"><div class="cta rv">
- <div><h3>Let’s work together!</h3><p>Open to internships, projects and collaboration.</p></div>
- <div><small>Email</small><span>salmann4979@gmail.com</span></div>
- <div><small>Phone</small><span>+91 80867 56642</span></div>
- <div><small>Location</small><span>Kerala, India</span></div>
- <a class="btn p" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=salmann4979@gmail.com" target="_blank" rel="noopener">Get in touch</a>
-</div></div></section>
-
-<footer><div class="wrap">© 2026 Salman Fariz A. All rights reserved.</div></footer>
-
-<script>
-document.documentElement.classList.add('js');
-const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
-// typing roles
-const roles=['Full Stack Developer','Embedded Systems Builder','Co-Founder & CTO','AI Enthusiast'],t=document.getElementById('type');
-let r=0,c=0,del=false;
-(function type(){const w=roles[r];t.textContent=w.slice(0,c);
- if(!del&&c<w.length)c++;else if(del&&c>0)c--;else{del=!del;if(!del)r=(r+1)%roles.length;}
- setTimeout(type,still?2000:(!del&&c===w.length)?1600:del?40:80)})();
-// reveal, counters, skill bars
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;el.classList.add('in');
- el.querySelectorAll('.bar i').forEach(b=>b.style.width=b.dataset.w+'%');
- el.querySelectorAll('.num').forEach(n=>{const end=+n.dataset.n;let v=0;const s=setInterval(()=>{v++;n.textContent=v;if(v>=end)clearInterval(s)},end>9?70:250)});
- io.unobserve(el)}),{threshold:.15});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-// cursor glow
-const g=document.getElementById('glow');
-addEventListener('pointermove',e=>{g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
-// particle network
-const cv=document.getElementById('bg'),x=cv.getContext('2d');let W,H,P=[];
-function size(){W=cv.width=innerWidth;H=cv.height=innerHeight;const n=Math.min(70,Math.floor(W*H/18000));
- P=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35}))}
-size();addEventListener('resize',size);
-(function draw(){x.clearRect(0,0,W,H);
- for(let i=0;i<P.length;i++){const a=P[i];a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;
-  x.fillStyle='rgba(255,255,255,.6)';x.beginPath();x.arc(a.x,a.y,1.4,0,7);x.fill();
-  for(let j=i+1;j<P.length;j++){const b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);
-   if(d<120){x.strokeStyle='rgba(255,255,255,'+(.18*(1-d/120))+')';x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}}
- if(!still)requestAnimationFrame(draw)})();
-
-// mobile menu
-const navBar=document.querySelector('nav'),menuBtn=document.getElementById('menu');
-menuBtn.addEventListener('click',()=>{const o=navBar.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o)});
-navBar.querySelectorAll('ul a').forEach(a=>a.addEventListener('click',()=>{navBar.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));
-if(matchMedia('(pointer:coarse)').matches){document.querySelectorAll('a[href*="mail.google.com"]').forEach(a=>{a.href='mailto:salmann4979@gmail.com';a.removeAttribute('target')})}
-</script>
-</body>
-</html>
+  <article class="card rv"><div class="thumb" style="background:linear-gradient(135deg,#0a0a0a,#3a3a3a)">airbnb</div><div class="b"><h3>Airbnb Clone</h3><small>React, Node, Express, MongoDB</small><p>Full stack rental platform with login, listings, image upload
